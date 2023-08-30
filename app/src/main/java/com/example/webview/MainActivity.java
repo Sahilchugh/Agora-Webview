@@ -21,9 +21,10 @@ public class MainActivity extends AppCompatActivity {
     private WebView webView;
     private Button button;
     private String abc = "";
-//    private String url = "https://mlbrains.com/call/test/";
-    private String url = "http://mlbrains.com/call/";
-//    private String url = "https://webcamtests.com/";
+////    private String url = "https://mlbrains.com/call/test/";
+////    private String url = "http://mlbrains.com/call/";
+//    private String url = "http://mlbrains.com/call/?action=start_call&uid=xAta6uMm9kdwxcC2rG7K5aTb4Jf1";
+////    private String url = "https://webcamtests.com/";
 
 
     @Override
@@ -59,8 +60,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setMediaPlaybackRequiresUserGesture(false);
 
-        webView.loadUrl(url);
+        webView.loadUrl(getIntent().getStringExtra("url"));
 
         button.setOnClickListener(v -> webView.evaluateJavascript("androidData(\"Bu11tton Click\")", null));
 //        button.setOnClickListener(v -> webView.evaluateJavascript("(function() { window.dispatchEvent(new CustomEvent('dataToWeb', {detail: { data:\"Button Click\"},}),); })();", null));
